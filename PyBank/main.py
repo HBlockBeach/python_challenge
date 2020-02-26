@@ -21,7 +21,7 @@ with open(csvpath, newline='') as csvfile:
 months = len(dates)
 totalpnl = sum(money)
 averagepnl = totalpnl/len(money)
-    
+   
 
 maximum = max(money)
 minimum = min(money)
@@ -38,7 +38,7 @@ for x in data:
         mindate = x[0]
 
 
-        
+
 
 print("Financial Analysis")
 print("----------------------")
@@ -48,4 +48,18 @@ print("Average Change : $",format(averagepnl,".2f"))
 print("Greatest Increase in Profits: ",maxdate,"(" + "$",maximum,")")
 print("Greatest Decrease in Profits: ", mindate,"(" + "$",minimum,")")
 
-    
+
+output = (
+    "Financial Analysis\n"
+    "----------------------\n"
+    f"Total Months: {months}\n"
+    f"Total: ${totalpnl}\n"
+    f"Average Change : ${averagepnl:.2f}\n"
+    f"Greatest Increase in Profits: {maxdate}, (${maximum})\n"
+    f"Greatest Decrease in Profits:  {mindate},(${minimum})\n")
+
+
+file_to_output = os.path.join("PyBank_Output.rtf")
+with open(file_to_output, "w") as txt_file:    
+
+    txt_file.write(output)

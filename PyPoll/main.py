@@ -53,7 +53,7 @@ with open(csvpath, newline='') as csvfile:
 
     
 
-    print("Election Results/n")
+    print("Election Results")
     print("---------------------")
     print("Total Votes: ", total_votes)
     print("---------------------")
@@ -66,6 +66,23 @@ with open(csvpath, newline='') as csvfile:
     print("---------------------")
 
 
+output = (
+    "Election Results\n"
+    "----------------------\n"
+    f"Total Votes: {total_votes}\n"
+     "----------------------\n"
+    f"{candidates[0]}: {candidate_percentage[0]} {counts[0]})\n"
+    f"{candidates[1]}: {candidate_percentage[1]} ({counts[1]})\n"
+    f"{candidates[2]}: {candidate_percentage[2]} ({counts[2]})\n"
+    f"{candidates[3]}: {candidate_percentage[3]} ({counts[3]})\n"
+    "----------------------\n"
+    "The Winner is: Khan\n"
+    "---------------------")
 
+
+file_to_output = os.path.join("PyPoll_Output.rtf")
+with open(file_to_output, "w") as txt_file:    
+
+    txt_file.write(output)
 
  
